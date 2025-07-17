@@ -8,11 +8,7 @@ const Comment = ({ comment }) => {
     .replace(/([^\s])\n/g, '$1  \n') // Add two spaces before single newlines for proper markdown line breaks
     .replace(/\n\n/g, '\n\n'); // Preserve double line breaks
 
-  return (
-    <span className="comment prose prose-invert tight-p no-indent max-w-none">
-      <Markdown>{formattedComment}</Markdown>
-    </span>
-  );
+  return <Markdown>{formattedComment}</Markdown>;
 };
 
 export default Comment;

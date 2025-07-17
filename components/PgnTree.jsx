@@ -192,13 +192,10 @@ const PgnTree = ({
   };
 
   return (
-    <div
-      ref={containerRef}
-      className="flex-1 overflow-y-auto bg-secondary text-gray-300 text-sm leading-relaxed min-h-0"
-    >
-      <div className="h-full flex flex-col gap-2">
+    <div ref={containerRef} className="pgn-tree">
+      <div className="pgn-tree-inner">
         {isEmpty(tree) ? (
-          <div className="flex items-center justify-center h-full text-center p-4">
+          <div className="pgn-tree-empty">
             <p>No moves to display yet</p>
           </div>
         ) : (

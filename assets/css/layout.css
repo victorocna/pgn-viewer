@@ -1,0 +1,36 @@
+.font-chess {
+  font-family: 'Noto Chess', 'Noto Sans', sans-serif;
+}
+
+.comment {
+  font-size: 0.75rem !important;
+  line-height: 1.7142857 !important;
+}
+@media (min-width: 1536px) {
+  .comment {
+    font-size: 0.875rem !important;
+    line-height: 1.7142857 !important;
+  }
+}
+
+.pgn-tree {
+  flex: 1 1 0%;
+  overflow-y: auto;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  min-height: 0px;
+}
+.pgn-tree > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.pgn-tree-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 1rem;
+}
