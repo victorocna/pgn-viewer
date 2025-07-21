@@ -1,4 +1,4 @@
-import { Menu, MenuButton } from '.';
+import { Menu, MenuButton, NoSsr } from '.';
 
 const Layout = ({ title, children }) => {
   return (
@@ -13,7 +13,7 @@ const Layout = ({ title, children }) => {
         </div>
         <div className="max-w-full">
           <div className="bg-white rounded-lg border border-gray-300 p-8 shadow-xl min-h-[600px]">
-            {children}
+            <NoSsr>{children}</NoSsr>
           </div>
         </div>
       </main>

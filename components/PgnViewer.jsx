@@ -2,7 +2,6 @@ import React from 'react';
 import { NextChessground } from 'next-chessground';
 import { usePgnViewer } from '../hooks';
 import PgnTree from './PgnTree';
-import NoSsr from './NoSsr';
 import Button from './Button';
 
 const PgnViewer = ({ pgn, disabled }) => {
@@ -25,9 +24,7 @@ const PgnViewer = ({ pgn, disabled }) => {
   return (
     <div className="pgn-viewer-container">
       <div className="pgn-viewer-board-section">
-        <NoSsr>
-          <NextChessground fen={current.fen} viewOnly={true} />
-        </NoSsr>
+        <NextChessground fen={current.fen} viewOnly={true} />
         <div className="pgn-viewer-controls">
           <Button
             className="button mini tertiary text-xl"
