@@ -14,7 +14,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@tailwindcss/postcss": "^4.1.11",
     "chess-moments": "^0.10.1",
     "merge-class-names": "^1.4.2",
     "next": "^14.2.25",
@@ -22,7 +21,7 @@
     "pgn-viewer": "file:../pgn-viewer-0.1.0.tgz",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
