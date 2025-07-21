@@ -2,7 +2,9 @@ import React from 'react';
 import { isEmpty, omit } from 'lodash';
 import classnames from 'merge-class-names';
 import { Fragment, useEffect, useRef } from 'react';
-import { Comment, Move, Shape } from '.';
+import Comment from './Comment';
+import Move from './Move';
+import Shape from './Shape';
 import { getMoveNumber, isMoveActive } from '../functions';
 
 const PgnTree = ({
@@ -49,41 +51,37 @@ const PgnTree = ({
         {move && (
           <>
             {shouldShowMoveNumber && (
-              <div className="col-span-2 flex items-center justify-center bg-tertiary text-gray-500 border-r border-gray-600">
+              <div className="pgn-tree-move-number">
                 <p>{getMoveNumber(fen)}.</p>
               </div>
             )}
             {!isWhiteMove && shouldShowAddOn && (
-              <div className="col-span-5 flex items-center px-3 py-1 bg-secondary">
+              <div className="pgn-tree-placeholder-cell">
                 <p>...</p>
               </div>
             )}
             <div
               ref={(el) => (momentsDictionaryRef.current[moment.index] = el)}
               className={classnames(
-                'col-span-5 flex items-center px-3 py-1 cursor-pointer hover:bg-accent hover:text-white',
-                isActive ? 'bg-accent text-white font-bold' : 'bg-secondary'
+                'pgn-tree-move-cell',
+                isActive && 'pgn-tree-move-cell-active'
               )}
               onClick={() => onMoveClick(moment)}
               onContextMenu={handleRightClick}
             >
               <span className="font-chess">{move}</span>
-              {suffix && (
-                <span className="ml-1 font-bold text-lg text-green-500">
-                  {suffix}
-                </span>
-              )}
-              {shapes && <Shape extraClass="ml-2" />}
+              {suffix && <span className="pgn-tree-move-suffix">{suffix}</span>}
+              {shapes && <Shape />}
             </div>
             {isWhiteMove && shouldShowAddOn && (
-              <div className="col-span-5 flex items-center px-3 py-1 bg-secondary">
+              <div className="pgn-tree-placeholder-cell">
                 <p>...</p>
               </div>
             )}
           </>
         )}
         {comment && (
-          <div className="col-span-12 px-2">
+          <div className="pgn-tree-comment-wrapper">
             {showMomentAsBlock(omit(moment, ['move']), inBlockIndex, block)}
           </div>
         )}
@@ -111,7 +109,7 @@ const PgnTree = ({
         {move && (
           <div
             ref={(el) => (momentsDictionaryRef.current[moment.index] = el)}
-            className="inline-block"
+            className="pgn-tree-move-block"
             onClick={() => onMoveClick(moment)}
             onContextMenu={handleRightClick}
           >
@@ -142,10 +140,14 @@ const PgnTree = ({
     };
 
     return (
-      <div key={variationId} className="text-wrap my-2" style={{ paddingLeft }}>
+      <div
+        key={variationId}
+        className="pgn-tree-plus-button-wrapper"
+        style={{ paddingLeft }}
+      >
         <button
           onClick={handleClick}
-          className="inline-flex items-center justify-center w-6 h-6 bg-tertiary hover:bg-accent rounded text-gray-400 hover:text-white transition-colors duration-200 text-xs"
+          className="pgn-tree-plus-button"
           title="Expand variation"
         >
           <i className="fas fa-plus"></i>
@@ -180,11 +182,15 @@ const PgnTree = ({
     return (
       <Fragment key={index}>
         {isLowestDepth ? (
-          <div className="w-full grid grid-cols-12">
+          <div className="pgn-tree-grid-container">
             {block.map(showMomentAsGrid)}
           </div>
         ) : (
-          <div key={index} className="text-wrap" style={{ paddingLeft }}>
+          <div
+            key={index}
+            className="pgn-tree-variation-wrapper"
+            style={{ paddingLeft }}
+          >
             {block.map(showMomentAsBlock)}
           </div>
         )}

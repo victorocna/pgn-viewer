@@ -1,3 +1,62 @@
+/**
+ * PGN Tree Component Styles
+ *
+ * This file contains all the CSS classes used by the PGN Tree component.
+ * Users can override these styles in their own CSS files to customize the appearance.
+ *
+ * Color Customization:
+ * Override the CSS custom properties in :root to change colors:
+ *
+ * :root {
+ *   --pgn-tree-color-accent: #your-color;
+ *   --pgn-tree-color-secondary: #your-color;
+ *   // ... etc
+ * }
+ *
+ * Component Customization:
+ * Override specific component classes:
+ *
+ * .pgn-tree-move-cell {
+ *   // your custom styles
+ * }
+ *
+ * Available CSS Classes:
+ * - .pgn-tree-grid-container: Main grid container for moves
+ * - .pgn-tree-move-number: Move number cells in grid layout
+ * - .pgn-tree-move-cell: Individual move cells in grid layout
+ * - .pgn-tree-move-cell-active: Active/current move highlighting
+ * - .pgn-tree-placeholder-cell: "..." placeholder cells
+ * - .pgn-tree-comment-wrapper: Comment container
+ * - .pgn-tree-variation-wrapper: Variation container
+ * - .pgn-tree-move-block: Move container in block layout
+ * - .pgn-tree-plus-button-wrapper: Plus button container
+ * - .pgn-tree-plus-button: Plus button for expanding variations
+ * - .pgn-tree-move-suffix: Move annotation suffix (!, ?, etc.)
+ * - .pgn-tree-move: Individual move component
+ * - .pgn-tree-move-main-line: Main line moves
+ * - .pgn-tree-move-variation: Variation moves
+ * - .pgn-tree-move-active: Active move in block layout
+ * - .pgn-tree-move-number-inline: Inline move numbers
+ * - .pgn-tree-shape: Shape indicator icon
+ * - .pgn-viewer-container: Main PgnViewer container with board and tree
+ * - .pgn-viewer-board-section: Board and controls section
+ * - .pgn-viewer-tree-section: PGN tree section
+ * - .pgn-viewer-controls: Navigation controls container
+ */
+
+/* CSS Custom Properties for easy customization */
+:root {
+  --pgn-tree-color-primary: #111827;
+  --pgn-tree-color-secondary: #1f2937;
+  --pgn-tree-color-tertiary: #374151;
+  --pgn-tree-color-accent: #3b82f6;
+  --pgn-tree-color-gray-400: #9ca3af;
+  --pgn-tree-color-gray-500: #6b7280;
+  --pgn-tree-color-gray-600: #4b5563;
+  --pgn-tree-color-green-400: #4ade80;
+  --pgn-tree-color-green-500: #10b981;
+}
+
 .font-chess {
   font-family: 'Noto Chess', 'Noto Sans', sans-serif;
 }
@@ -33,4 +92,175 @@
   height: 100%;
   text-align: center;
   padding: 1rem;
+}
+
+/* Grid layout classes */
+.pgn-tree-grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.pgn-tree-move-number {
+  grid-column: span 2 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--pgn-tree-color-tertiary);
+  color: var(--pgn-tree-color-gray-500);
+  border-right: 1px solid var(--pgn-tree-color-gray-600);
+}
+
+.pgn-tree-move-cell {
+  grid-column: span 5 / span 5;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  background-color: var(--pgn-tree-color-secondary);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pgn-tree-move-cell:hover {
+  background-color: var(--pgn-tree-color-accent);
+  color: white;
+}
+
+.pgn-tree-move-cell-active {
+  background-color: var(--pgn-tree-color-accent);
+  color: white;
+  font-weight: bold;
+}
+
+.pgn-tree-placeholder-cell {
+  grid-column: span 5 / span 5;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--pgn-tree-color-secondary);
+}
+
+.pgn-tree-comment-wrapper {
+  grid-column: span 12 / span 12;
+  padding: 0 0.5rem;
+}
+
+/* Block layout classes */
+.pgn-tree-variation-wrapper {
+  word-wrap: break-word;
+}
+
+.pgn-tree-move-block {
+  display: inline-block;
+}
+
+/* Plus button classes */
+.pgn-tree-plus-button-wrapper {
+  word-wrap: break-word;
+  margin: 0.5rem 0;
+}
+
+.pgn-tree-plus-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--pgn-tree-color-tertiary);
+  border-radius: 0.25rem;
+  color: var(--pgn-tree-color-gray-400);
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+}
+
+.pgn-tree-plus-button:hover {
+  background-color: var(--pgn-tree-color-accent);
+  color: white;
+}
+
+/* Move suffix styling */
+.pgn-tree-move-suffix {
+  margin-left: 0.25rem;
+  font-weight: bold;
+  font-size: 1.125rem;
+  color: var(--pgn-tree-color-green-500);
+}
+
+/* Move component classes */
+.pgn-tree-move {
+  display: inline-flex;
+  align-items: end;
+  cursor: pointer;
+  margin: 0 0.25rem;
+  padding: 0 0.125rem;
+}
+
+.pgn-tree-move-main-line {
+  font-weight: 600;
+}
+
+.pgn-tree-move-variation {
+  color: var(--pgn-tree-color-gray-400);
+}
+
+.pgn-tree-move-active {
+  color: white;
+  background-color: var(--pgn-tree-color-accent);
+  border-radius: 0.25rem;
+}
+
+.pgn-tree-move-number-inline {
+  margin-right: 0.25rem;
+}
+
+/* Shape component classes */
+.pgn-tree-shape {
+  font-size: 0.75rem;
+  color: var(--pgn-tree-color-green-400);
+  margin-right: 0.25rem;
+}
+
+/* PGN Viewer layout classes */
+.pgn-viewer-container {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  min-height: 400px;
+}
+
+.pgn-viewer-board-section {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pgn-viewer-tree-section {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.pgn-viewer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  justify-content: flex-end;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .pgn-viewer-container {
+    flex-direction: column;
+  }
+
+  .pgn-viewer-board-section {
+    flex: none;
+  }
+
+  .pgn-viewer-tree-section {
+    flex: 1 1 auto;
+    min-height: 200px;
+  }
 }
