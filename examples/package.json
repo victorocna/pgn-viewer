@@ -21,6 +21,7 @@
     "pgn-viewer": "file:../pgn-viewer-0.1.0.tgz",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "store2": "^2.14.4",
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
