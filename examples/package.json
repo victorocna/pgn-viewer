@@ -1,5 +1,5 @@
 {
-  "name": "next-chessground-examples",
+  "name": "pgn-viewer-examples",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,11 +15,12 @@
   "license": "ISC",
   "dependencies": {
     "chess-moments": "^0.10.1",
-    "highlight.js": "^11.3.1",
     "merge-class-names": "^1.4.2",
     "next": "^14.2.25",
     "next-chessground": "^1.0.0",
+    "pgn-viewer": "file:../pgn-viewer-0.1.0.tgz",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.1.11"
   }
 }

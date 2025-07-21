@@ -1,6 +1,6 @@
+import classnames from 'merge-class-names';
 import { useRouter } from 'next/router';
 import { Link } from '.';
-import { classnames } from '../lib';
 
 const MenuItem = ({ href, children, level }) => {
   const router = useRouter();

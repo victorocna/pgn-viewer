@@ -1,8 +1,9 @@
+import React from 'react';
 import { isEmpty, omit } from 'lodash';
+import classnames from 'merge-class-names';
 import { Fragment, useEffect, useRef } from 'react';
 import { Comment, Move, Shape } from '.';
 import { getMoveNumber, isMoveActive } from '../functions';
-import { classnames } from '../lib';
 
 const PgnTree = ({
   tree,
