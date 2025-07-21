@@ -1,7 +1,7 @@
 {
   "name": "pgn-viewer",
   "version": "0.1.0",
-  "description": "React PGN viewer widget with Next Chessground",
+  "description": "React PGN viewer widget for all chess games",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "author": "victorocna <victor@chesscoders.com>",
@@ -13,8 +13,8 @@
   },
   "keywords": [
     "chess",
-    "chessboard",
-    "chessground",
+    "pgn",
+    "pgn-viewer",
     "react"
   ],
   "files": [
