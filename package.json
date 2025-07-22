@@ -27,16 +27,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "chess-moments": "^0.15.2",
+    "chess-moments": "^1.0.0",
     "markdown-to-jsx": "^7.7.10",
     "merge-class-names": "^1.4.2",
     "next-chessground": "^1.1.2",
     "react-pure-modal": "^2.2.7"
   },
   "peerDependencies": {
+    "next": "^12 || ^13 || ^14",
     "react": "^17 || ^18",
-    "react-dom": "^17 || ^18",
-    "next": "^12 || ^13 || ^14"
+    "react-dom": "^17 || ^18"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
