@@ -24,10 +24,10 @@ const PgnFileLoader = ({ rerender, onPgnLoad }) => {
   };
 
   return (
-    <>
+    <div className="hidden xl:flex items-center">
       <Button
         onClick={handleFileSelect}
-        className="bg-accent hover:bg-accent-dark text-white px-4 py-2 -my-1 rounded-md text-sm font-medium transition-colors"
+        className="bg-green-800 hover:bg-green-800/90 text-white px-3 py-2 -my-1 rounded-md text-sm font-medium"
       >
         Load PGN
       </Button>
@@ -38,7 +38,7 @@ const PgnFileLoader = ({ rerender, onPgnLoad }) => {
         onChange={handleFileChange}
         className="hidden"
       />
-    </>
+    </div>
   );
 };
 
