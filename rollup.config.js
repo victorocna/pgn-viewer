@@ -21,7 +21,10 @@ const config = {
       babelHelpers: 'bundled',
       exclude: 'node_modules/**',
     }),
-    postcss({}),
+    postcss({
+      extract: 'bundle.css',
+      minimize: true,
+    }),
     resolve(),
     commonjs({ extensions: ['.js', '.jsx'] }),
     url({

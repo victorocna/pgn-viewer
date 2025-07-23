@@ -2,9 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './icons.css';
-@import './pgn-tree.css';
-@import './pgn-viewer.css';
 @import './layout.css';
 @import './menu.css';
-@import './buttons.css';
