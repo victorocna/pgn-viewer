@@ -15,9 +15,3 @@
 .next-chessground .text-gray-400.flex.flex-row-reverse {
   display: none !important;
 }
-
-/* Utility class for max width containers */
-.max {
-  max-width: 1340px;
-  margin: 0 auto;
-}
