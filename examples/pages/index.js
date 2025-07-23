@@ -1,5 +1,5 @@
 import { Layout } from '../components';
-import { PgnViewer } from 'pgn-viewer';
+import { PgnViewer } from 'next-pgn-viewer';
 import { useLocalPgn } from '../hooks';
 
 const Page = () => {

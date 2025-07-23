@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { AppHead } from '../components';
 import { sitename } from '../site.config';
 import '../css/index.css';
-import 'pgn-viewer/dist/bundle.css';
+import 'next-pgn-viewer/dist/bundle.css';
 
 const Root = (props) => {
   const { Component, pageProps } = props;
