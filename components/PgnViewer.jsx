@@ -15,7 +15,7 @@ const PgnViewer = ({ pgn, disabled, header }) => {
     goToMoment,
     onVariationChoice,
     onVariationsCancel,
-  } = usePgnViewer(pgn, { autoSelectMainline: true });
+  } = usePgnViewer(pgn);
 
   const handleMoveClick = (moment) => {
     if (!disabled) {
