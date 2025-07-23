@@ -1,9 +1,12 @@
+
 export { default as AppHead } from './AppHead';
 export { default as Button } from './Button';
 export { default as Layout } from './Layout';
 export { default as Link } from './Link';
 export { default as Menu } from './Menu';
-export { default as NoSsr } from './NoSsr';
 export { default as MenuButton } from './MenuButton';
 export { default as MenuItem } from './MenuItem';
+export { default as MoveArrows } from './MoveArrows';
+export { default as NoSsr } from './NoSsr';
 export { default as PgnFileLoader } from './PgnFileLoader';
+export { default as PgnViewer } from './PgnViewer';

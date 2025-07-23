@@ -1,0 +1,279 @@
+/**
+ * PGN Tree Component Styles
+ *
+ * This file contains all the CSS classes used by the PGN Tree component.
+ * Users can override these styles in their own CSS files to customize the appearance.
+ *
+ * Themes:
+ * The component supports both light and dark themes. Dark theme is default.
+ * To use light theme, add the 'pgn-tree-light' class to any parent element of the PGN tree.
+ *
+ * Color Customization:
+ * Override the CSS custom properties in :root to change colors:
+ *
+ * :root {
+ *   --pgn-tree-color-accent: #your-color;
+ *   --pgn-tree-color-secondary: #your-color;
+ *   // ... etc
+ * }
+ *
+ * Component Customization:
+ * Override specific component classes:
+ *
+ * .pgn-tree-move-cell {
+ *   // your custom styles
+ * }
+ *
+ * Available CSS Classes:
+ * - .pgn-tree-grid-container: Main grid container for moves
+ * - .pgn-tree-move-number: Move number cells in grid layout
+ * - .pgn-tree-move-cell: Individual move cells in grid layout
+ * - .pgn-tree-move-cell-active: Active/current move highlighting
+ * - .pgn-tree-placeholder-cell: "..." placeholder cells
+ * - .pgn-tree-comment-wrapper: Comment container
+ * - .pgn-tree-variation-wrapper: Variation container
+ * - .pgn-tree-move-block: Move container in block layout
+ * - .pgn-tree-plus-button-wrapper: Plus button container
+ * - .pgn-tree-plus-button: Plus button for expanding variations
+ * - .pgn-tree-move-suffix: Move annotation suffix (!, ?, etc.)
+ * - .pgn-tree-move: Individual move component
+ * - .pgn-tree-move-main-line: Main line moves
+ * - .pgn-tree-move-variation: Variation moves
+ * - .pgn-tree-move-active: Active move in block layout
+ * - .pgn-tree-move-number-inline: Inline move numbers
+ *
+ * Theme Classes:
+ * - .pgn-tree-light: Apply light theme to any parent element
+ */
+
+/* CSS Custom Properties for easy customization */
+:root {
+  /* Dark theme (default) */
+  --pgn-tree-color-primary: #111111;
+  --pgn-tree-color-secondary: #1e1e1e;
+  --pgn-tree-color-tertiary: #2e2e2e;
+  --pgn-tree-color-accent: #2976ff;
+  --pgn-tree-color-text: #ffffff;
+  --pgn-tree-color-text-secondary: #989898;
+  --pgn-tree-color-border: rgba(255, 255, 255, 0.1);
+  --pgn-tree-color-hover: #374151;
+  --pgn-tree-color-green-400: #22c55e;
+  --pgn-tree-color-green-500: #16a34a;
+}
+
+/* Light theme alternative */
+.pgn-tree-light {
+  --pgn-tree-color-primary: #ffffff;
+  --pgn-tree-color-secondary: #f8f9fa;
+  --pgn-tree-color-tertiary: #e9ecef;
+  --pgn-tree-color-accent: #2976ff;
+  --pgn-tree-color-text: #000000;
+  --pgn-tree-color-text-secondary: #6b7280;
+  --pgn-tree-color-border: #d1d5db;
+  --pgn-tree-color-hover: #f3f4f6;
+  --pgn-tree-color-green-400: #22c55e;
+  --pgn-tree-color-green-500: #16a34a;
+}
+
+/* Comment styles */
+.comment {
+  font-size: 0.75rem !important;
+  line-height: 1.7142857 !important;
+}
+
+@media (min-width: 1536px) {
+  .comment {
+    font-size: 0.875rem !important;
+    line-height: 1.7142857 !important;
+  }
+}
+
+/* Main PGN tree container */
+.pgn-tree {
+  flex: 1 1 0%;
+  overflow-y: auto;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  min-height: 0px;
+  color: var(--pgn-tree-color-text);
+}
+
+/* Custom scrollbar styling */
+.pgn-tree::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pgn-tree::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.pgn-tree::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.pgn-tree::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.pgn-tree > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pgn-tree-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 1rem;
+  color: var(--pgn-tree-color-text-secondary);
+}
+
+/* Grid layout classes */
+.pgn-tree-grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin-bottom: 0.5rem;
+}
+
+.pgn-tree-move-number {
+  grid-column: span 2 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--pgn-tree-color-tertiary);
+  color: #6b7280;
+  border-right: 1px solid #4b5563;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.25rem 0;
+}
+
+.pgn-tree-move-cell {
+  grid-column: span 5 / span 5;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  background-color: var(--pgn-tree-color-secondary);
+  color: var(--pgn-tree-color-text);
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.pgn-tree-move-cell:hover {
+  background-color: var(--pgn-tree-color-accent);
+  color: white;
+}
+
+.pgn-tree-move-cell-active {
+  background-color: var(--pgn-tree-color-accent) !important;
+  color: white !important;
+  font-weight: 700 !important;
+}
+
+.pgn-tree-placeholder-cell {
+  grid-column: span 5 / span 5;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--pgn-tree-color-secondary);
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.pgn-tree-comment-wrapper {
+  grid-column: span 12 / span 12;
+  padding: 0.75rem;
+  background-color: var(--pgn-tree-color-primary);
+  font-style: italic;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  line-height: 1.714;
+}
+
+/* Block layout classes */
+.pgn-tree-variation-wrapper {
+  word-wrap: break-word;
+}
+
+.pgn-tree-move-block {
+  display: inline-block;
+}
+
+/* Plus button classes */
+.pgn-tree-plus-button-wrapper {
+  word-wrap: break-word;
+  margin: 0.5rem 0;
+}
+
+.pgn-tree-plus-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--pgn-tree-color-tertiary);
+  border-radius: 0.25rem;
+  color: var(--pgn-tree-color-text-secondary);
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+}
+
+.pgn-tree-plus-button:hover {
+  background-color: var(--pgn-tree-color-accent);
+  color: white;
+}
+
+/* Move suffix styling */
+.pgn-tree-move-suffix {
+  margin-left: 0.25rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #10b981;
+}
+
+/* Move component classes */
+.pgn-tree-move {
+  display: inline-flex;
+  align-items: end;
+  cursor: pointer;
+  margin: 0 0.25rem;
+  padding: 0.125rem 0.25rem;
+  color: var(--pgn-tree-color-text);
+  border-radius: 0.25rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pgn-tree-move:hover {
+  background-color: var(--pgn-tree-color-hover);
+}
+
+.pgn-tree-move-main-line {
+  font-weight: 600;
+}
+
+.pgn-tree-move-variation {
+  color: var(--pgn-tree-color-text-secondary);
+}
+
+.pgn-tree-move-active {
+  color: white !important;
+  background-color: var(--pgn-tree-color-accent) !important;
+}
+
+.pgn-tree-move-active:hover {
+  background-color: var(--pgn-tree-color-accent) !important;
+}
+
+.pgn-tree-move-number-inline {
+  margin-right: 0.25rem;
+}
