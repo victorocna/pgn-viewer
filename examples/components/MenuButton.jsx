@@ -3,7 +3,7 @@ import React from 'react';
 const MenuButton = () => {
   return (
     <div
-      className="2xl:hidden text-primary rounded border py-1 px-2 inline-block ml-2 bg-white"
+      className="xl:hidden text-primary rounded border py-1 px-2 inline-block ml-2 bg-white"
       aria-label="Open menu"
     >
       <label
