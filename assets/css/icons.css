@@ -2,6 +2,15 @@
  * Icon Styles
  *
 
+/* Load the Noto Chess font */
+@font-face {
+  font-family: 'Noto Chess';
+  src: url('./fonts/noto-chess.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Chess font for notation symbols */
 .font-chess {
   font-family: 'Noto Chess', 'Noto Sans', sans-serif;
