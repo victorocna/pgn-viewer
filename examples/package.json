@@ -19,7 +19,7 @@
     "n": "^10.2.0",
     "next": "^14.2.25",
     "next-chessground": "^1.0.0",
-    "pgn-viewer": "file:../pgn-viewer-0.2.0.tgz",
+    "pgn-viewer": "file:../pgn-viewer-0.1.0.tgz",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "store2": "^2.14.4",
