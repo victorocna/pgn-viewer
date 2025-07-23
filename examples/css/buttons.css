@@ -1,6 +1,8 @@
 /* Navigation button styles for chess controls */
 .button.nav {
-  @apply inline-flex items-center justify-center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
   background-color: #2d2d2d;
@@ -37,7 +39,9 @@
 
 /* Light theme navigation button styles */
 .button.nav-light {
-  @apply inline-flex items-center justify-center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
   background-color: #f3f4f6;
