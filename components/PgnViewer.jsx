@@ -24,25 +24,28 @@ const PgnViewer = ({ pgn, disabled }) => {
   return (
     <div className="pgn-viewer-container">
       <div className="pgn-viewer-board-section">
-        <NextChessground fen={current.fen} viewOnly={true} />
+        <div className="pgn-viewer-board-wrapper">
+          <NextChessground fen={current.fen} viewOnly={true} />
+        </div>
         <div className="pgn-viewer-controls">
           <Button
-            className="button mini tertiary text-xl"
+            className="button text-lg"
             onClick={goPrevMoment}
             disabled={disabled}
           >
-            <i className="fa-solid fa-chevron-left"></i>
+            ‹
           </Button>
           <Button
-            className="button mini tertiary text-xl"
+            className="button text-lg"
             onClick={goNextMoment}
             disabled={disabled}
           >
-            <i className="fa-solid fa-chevron-right"></i>
+            ›
           </Button>
         </div>
       </div>
       <div className="pgn-viewer-tree-section">
+        <h1>TEXT</h1>
         <PgnTree tree={tree} current={current} onMoveClick={handleMoveClick} />
       </div>
     </div>

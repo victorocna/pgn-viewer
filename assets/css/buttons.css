@@ -1,0 +1,39 @@
+.button {
+  @apply relative inline-block cursor-pointer rounded;
+  width: fit-content;
+}
+
+.button:hover {
+  text-decoration: none;
+}
+
+button:focus {
+  outline: 0 !important;
+}
+
+button:active,
+a[role='button']:active {
+  outline: 0 !important;
+  position: relative;
+  top: 1px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  filter: opacity(0.75);
+}
+button:disabled > * {
+  pointer-events: none;
+}
+button:disabled ~ * {
+  cursor: not-allowed;
+}
+
+.button.full,
+.button.square {
+  @apply border-2 py-2 px-6 text-sm font-medium;
+}
+
+.button.mini {
+  @apply border bg-white py-1 px-3 text-sm;
+}

@@ -4,6 +4,10 @@
  * This file contains all the CSS classes used by the PGN Tree component.
  * Users can override these styles in their own CSS files to customize the appearance.
  *
+ * Themes:
+ * The component supports both light and dark themes. Light theme is default.
+ * To use dark theme, add the 'pgn-tree-dark' class to any parent element of the PGN tree.
+ *
  * Color Customization:
  * Override the CSS custom properties in :root to change colors:
  *
@@ -42,19 +46,38 @@
  * - .pgn-viewer-board-section: Board and controls section
  * - .pgn-viewer-tree-section: PGN tree section
  * - .pgn-viewer-controls: Navigation controls container
+ *
+ * Theme Classes:
+ * - .pgn-tree-dark: Apply dark theme to any parent element
  */
 
 /* CSS Custom Properties for easy customization */
 :root {
-  --pgn-tree-color-primary: #111827;
-  --pgn-tree-color-secondary: #1f2937;
-  --pgn-tree-color-tertiary: #374151;
-  --pgn-tree-color-accent: #3b82f6;
-  --pgn-tree-color-gray-400: #9ca3af;
-  --pgn-tree-color-gray-500: #6b7280;
-  --pgn-tree-color-gray-600: #4b5563;
-  --pgn-tree-color-green-400: #4ade80;
-  --pgn-tree-color-green-500: #10b981;
+  /* AlexBanzea-inspired dark theme (default) */
+  --pgn-tree-color-primary: #111111;
+  --pgn-tree-color-secondary: #1e1e1e;
+  --pgn-tree-color-tertiary: #2e2e2e;
+  --pgn-tree-color-accent: #2976ff;
+  --pgn-tree-color-text: #ffffff;
+  --pgn-tree-color-text-secondary: #989898;
+  --pgn-tree-color-border: rgba(255, 255, 255, 0.1);
+  --pgn-tree-color-hover: #374151;
+  --pgn-tree-color-green-400: #22c55e;
+  --pgn-tree-color-green-500: #16a34a;
+}
+
+/* Light theme alternative */
+.pgn-tree-light {
+  --pgn-tree-color-primary: #ffffff;
+  --pgn-tree-color-secondary: #f8f9fa;
+  --pgn-tree-color-tertiary: #e9ecef;
+  --pgn-tree-color-accent: #2976ff;
+  --pgn-tree-color-text: #000000;
+  --pgn-tree-color-text-secondary: #6b7280;
+  --pgn-tree-color-border: #d1d5db;
+  --pgn-tree-color-hover: #f3f4f6;
+  --pgn-tree-color-green-400: #22c55e;
+  --pgn-tree-color-green-500: #16a34a;
 }
 
 .font-chess {
@@ -78,6 +101,27 @@
   font-size: 0.875rem;
   line-height: 1.625;
   min-height: 0px;
+  background-color: var(--pgn-tree-color-secondary);
+  color: #d1d5db;
+  padding: 1rem;
+}
+
+/* Custom scrollbar styling */
+.pgn-tree::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pgn-tree::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.pgn-tree::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.pgn-tree::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 .pgn-tree > div {
   height: 100%;
@@ -92,6 +136,7 @@
   height: 100%;
   text-align: center;
   padding: 1rem;
+  color: var(--pgn-tree-color-text-secondary);
 }
 
 /* Grid layout classes */
@@ -99,6 +144,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin-bottom: 0.5rem;
 }
 
 .pgn-tree-move-number {
@@ -107,8 +153,11 @@
   align-items: center;
   justify-content: center;
   background-color: var(--pgn-tree-color-tertiary);
-  color: var(--pgn-tree-color-gray-500);
-  border-right: 1px solid var(--pgn-tree-color-gray-600);
+  color: #6b7280;
+  border-right: 1px solid #4b5563;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.25rem 0;
 }
 
 .pgn-tree-move-cell {
@@ -118,7 +167,10 @@
   padding: 0.25rem 0.75rem;
   cursor: pointer;
   background-color: var(--pgn-tree-color-secondary);
-  transition: background-color 0.2s, color 0.2s;
+  color: #d1d5db;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
 .pgn-tree-move-cell:hover {
@@ -127,9 +179,9 @@
 }
 
 .pgn-tree-move-cell-active {
-  background-color: var(--pgn-tree-color-accent);
-  color: white;
-  font-weight: bold;
+  background-color: var(--pgn-tree-color-accent) !important;
+  color: white !important;
+  font-weight: 700 !important;
 }
 
 .pgn-tree-placeholder-cell {
@@ -138,11 +190,18 @@
   align-items: center;
   padding: 0.25rem 0.75rem;
   background-color: var(--pgn-tree-color-secondary);
+  color: #6b7280;
+  font-size: 0.875rem;
 }
 
 .pgn-tree-comment-wrapper {
   grid-column: span 12 / span 12;
-  padding: 0 0.5rem;
+  padding: 0.75rem;
+  background-color: var(--pgn-tree-color-primary);
+  font-style: italic;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  line-height: 1.714;
 }
 
 /* Block layout classes */
@@ -168,7 +227,7 @@
   height: 1.5rem;
   background-color: var(--pgn-tree-color-tertiary);
   border-radius: 0.25rem;
-  color: var(--pgn-tree-color-gray-400);
+  color: var(--pgn-tree-color-text-secondary);
   transition: background-color 0.2s, color 0.2s;
   font-size: 0.75rem;
   border: none;
@@ -184,8 +243,8 @@
 .pgn-tree-move-suffix {
   margin-left: 0.25rem;
   font-weight: bold;
-  font-size: 1.125rem;
-  color: var(--pgn-tree-color-green-500);
+  font-size: 1rem;
+  color: #10b981;
 }
 
 /* Move component classes */
@@ -194,7 +253,14 @@
   align-items: end;
   cursor: pointer;
   margin: 0 0.25rem;
-  padding: 0 0.125rem;
+  padding: 0.125rem 0.25rem;
+  color: var(--pgn-tree-color-text);
+  border-radius: 0.25rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pgn-tree-move:hover {
+  background-color: var(--pgn-tree-color-hover);
 }
 
 .pgn-tree-move-main-line {
@@ -202,13 +268,16 @@
 }
 
 .pgn-tree-move-variation {
-  color: var(--pgn-tree-color-gray-400);
+  color: var(--pgn-tree-color-text-secondary);
 }
 
 .pgn-tree-move-active {
-  color: white;
-  background-color: var(--pgn-tree-color-accent);
-  border-radius: 0.25rem;
+  color: white !important;
+  background-color: var(--pgn-tree-color-accent) !important;
+}
+
+.pgn-tree-move-active:hover {
+  background-color: var(--pgn-tree-color-accent) !important;
 }
 
 .pgn-tree-move-number-inline {
@@ -218,49 +287,185 @@
 /* Shape component classes */
 .pgn-tree-shape {
   font-size: 0.75rem;
-  color: var(--pgn-tree-color-green-400);
+  color: #4ade80;
   margin-right: 0.25rem;
 }
 
 /* PGN Viewer layout classes */
 .pgn-viewer-container {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   width: 100%;
-  min-height: 400px;
+  align-items: flex-start;
+  background-color: var(--pgn-tree-color-primary);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--pgn-tree-color-border);
 }
 
 .pgn-viewer-board-section {
-  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  width: 50%;
+  min-width: 0;
+  align-items: center;
+}
+
+/* Board wrapper for equal height */
+.pgn-viewer-board-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* Chessboard size constraints with enhanced styling */
+.pgn-viewer-board-wrapper .chessground {
+  width: 240px !important;
+  height: 240px !important;
+  max-width: 100%;
+  max-height: 50vh;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.15),
+    0 2px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--pgn-tree-color-border);
+  transition: all 0.2s ease;
+}
+
+/* Add subtle glow effect on hover */
+.pgn-viewer-board-wrapper:hover .chessground {
+  box-shadow: 0 6px 16px -2px rgba(41, 118, 255, 0.12),
+    0 4px 8px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }
 
 .pgn-viewer-tree-section {
-  flex: 1 1 0%;
+  width: 50%;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--pgn-tree-color-secondary);
+  border-radius: 0.5rem;
+  border: 1px solid var(--pgn-tree-color-border);
+  min-height: 200px;
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .pgn-viewer-controls {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-  justify-content: flex-end;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+/* Enhanced button styling for better integration */
+.pgn-viewer-controls .button {
+  background-color: var(--pgn-tree-color-accent);
+  border: 1px solid var(--pgn-tree-color-accent);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px -1px rgba(41, 118, 255, 0.15),
+    0 1px 2px -1px rgba(41, 118, 255, 0.1);
+}
+
+.pgn-viewer-controls .button:hover {
+  background-color: #1e40af;
+  border-color: #1e40af;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -2px rgba(41, 118, 255, 0.25),
+    0 2px 4px -1px rgba(41, 118, 255, 0.15);
+}
+
+.pgn-viewer-controls .button:disabled {
+  background-color: var(--pgn-tree-color-tertiary);
+  border-color: var(--pgn-tree-color-border);
+  color: var(--pgn-tree-color-text-secondary);
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+  box-shadow: none;
+}
+
+.pgn-viewer-controls .button:disabled:hover {
+  background-color: var(--pgn-tree-color-tertiary);
+  border-color: var(--pgn-tree-color-border);
+  color: var(--pgn-tree-color-text-secondary);
+  transform: none;
+  box-shadow: none;
 }
 
 /* Responsive layout */
+@media (max-width: 1024px) {
+  .pgn-viewer-container {
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .pgn-viewer-board-wrapper .chessground {
+    width: 180px !important;
+    height: 180px !important;
+  }
+}
+
 @media (max-width: 768px) {
   .pgn-viewer-container {
     flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
   }
 
-  .pgn-viewer-board-section {
-    flex: none;
+  .pgn-viewer-board-section,
+  .pgn-viewer-tree-section {
+    width: 100%;
   }
 
   .pgn-viewer-tree-section {
-    flex: 1 1 auto;
-    min-height: 200px;
+    min-height: 320px;
   }
+
+  .pgn-viewer-board-wrapper .chessground {
+    width: min(100vw - 4rem, 200px) !important;
+    height: min(100vw - 4rem, 200px) !important;
+  }
+
+  .chess-demo-title {
+    font-size: 2rem;
+  }
+
+  .chess-demo-layout {
+    padding: 1rem;
+  }
+
+  .chess-demo-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pgn-viewer-board-wrapper .chessground {
+    width: min(100vw - 2rem, 170px) !important;
+    height: min(100vw - 2rem, 170px) !important;
+  }
+}
+
+.max {
+  max-width: 1340px;
+  margin: 0 auto;
 }

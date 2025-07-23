@@ -16,6 +16,7 @@
   "dependencies": {
     "chess-moments": "^0.10.1",
     "merge-class-names": "^1.4.2",
+    "n": "^10.2.0",
     "next": "^14.2.25",
     "next-chessground": "^1.0.0",
     "pgn-viewer": "file:../pgn-viewer-0.1.0.tgz",
