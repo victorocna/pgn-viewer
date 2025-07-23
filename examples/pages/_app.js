@@ -1,8 +1,8 @@
-import { sitename } from '../site.config';
 import Head from 'next/head';
+import { AppHead } from '../components';
+import { sitename } from '../site.config';
 import '../css/index.css';
 import 'pgn-viewer/dist/bundle.css';
-import { AppHead } from '../components';
 
 const Root = (props) => {
   const { Component, pageProps } = props;
