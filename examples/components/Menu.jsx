@@ -1,4 +1,4 @@
-import { MenuItem } from '.';
+import MenuItem from './MenuItem';
 
 const Menu = () => {
   return (
@@ -17,13 +17,8 @@ const Menu = () => {
       <nav className="nav-menu overflow-y-auto bg-white border-r border-gray-200">
         <div className="flex flex-col py-8 lg:sticky lg:top-0">
           <MenuItem href="/">Basic example</MenuItem>
-          <MenuItem href="/rook">With rook</MenuItem>
-          <MenuItem href="/queen">With queen</MenuItem>
-          <MenuItem href="/pawn">Pawn promotion</MenuItem>
-          <MenuItem href="/shapes">Shapes</MenuItem>
-          <MenuItem href="/play">Play computer</MenuItem>
-          <MenuItem href="/watch">Watch computers play</MenuItem>
-          <MenuItem href="/editor">Chess editor</MenuItem>
+          <MenuItem href="/dark-mode">Dark mode</MenuItem>
+          <MenuItem href="/editor">PGN editor</MenuItem>
         </div>
       </nav>
     </>

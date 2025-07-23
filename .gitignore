@@ -2,6 +2,7 @@
 dist
 NOTES.txt
 .env.production
+.DS_Store
 
 # Logs
 logs

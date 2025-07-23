@@ -1,21 +1,21 @@
+import React from 'react';
 import { getMoveSuffix, showMoveIndex } from '../functions';
+import classnames from 'merge-class-names';
 
 const Move = ({ move, fen, depth, previous, isActive, onClick }) => {
-  const classes = ['inline-flex items-end cursor-pointer mx-1 px-0.5'];
-  if (depth === 1) {
-    classes.push('font-semibold');
-  }
-  if (depth > 1 && !isActive) {
-    classes.push('text-gray-400');
-  }
-  if (isActive) {
-    classes.push('text-white bg-accent rounded');
-  }
+  const classes = classnames(
+    'pgn-tree-move',
+    depth === 1 && 'pgn-tree-move-main-line',
+    depth > 1 && !isActive && 'pgn-tree-move-variation',
+    isActive && 'pgn-tree-move-active'
+  );
 
   return (
-    <span className={classes.join(' ')} onClick={onClick}>
+    <span className={classes} onClick={onClick}>
       {showMoveIndex(previous, fen, depth) && (
-        <span className="mr-1">{getMoveSuffix(fen)}</span>
+        <span className="pgn-tree-move-number-inline">
+          {getMoveSuffix(fen)}
+        </span>
       )}
       <span className="font-chess">{move}</span>
     </span>

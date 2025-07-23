@@ -1,12 +1,13 @@
-import { PgnTree } from 'pgn-viewer';
 import { Layout } from '../components';
+import { PgnViewer } from 'pgn-viewer';
+import { useLocalPgn } from '../hooks';
 
 const Page = () => {
+  const { pgn, key } = useLocalPgn();
+
   return (
     <Layout title="Basic example">
-      <div className="grid md:grid-cols-2 gap-12">
-        <PgnTree />
-      </div>
+      <PgnViewer key={key} pgn={pgn} header="PGN Viewer" />
     </Layout>
   );
 };

@@ -14,13 +14,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chess-moments": "^0.10.1",
+    "chess-moments": "^1.0.0",
     "merge-class-names": "^1.4.2",
     "next": "^14.2.25",
     "next-chessground": "^1.0.0",
     "pgn-viewer": "file:../pgn-viewer-0.1.0.tgz",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "store2": "^2.14.4",
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
