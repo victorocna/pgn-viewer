@@ -3,6 +3,7 @@ import { NextChessground } from 'next-chessground';
 import { useEqualHeight, usePgnViewer, useShapes } from '../hooks';
 import PgnTree from './PgnTree';
 import MoveArrows from './MoveArrows';
+import MoveModal from './MoveModal';
 
 const PgnViewer = ({ pgn, disabled, header }) => {
   const {
@@ -12,7 +13,9 @@ const PgnViewer = ({ pgn, disabled, header }) => {
     goNextMoment,
     goPrevMoment,
     goToMoment,
-  } = usePgnViewer(pgn, { autoSelectMainline: true });
+    onVariationChoice,
+    onVariationsCancel,
+  } = usePgnViewer(pgn);
 
   const handleMoveClick = (moment) => {
     if (!disabled) {
@@ -20,7 +23,7 @@ const PgnViewer = ({ pgn, disabled, header }) => {
     }
   };
 
-  const { shapes } = useShapes({ current, variations });
+  const { shapes, refocusModal } = useShapes({ current, variations });
   const { sourceRef, targetRef } = useEqualHeight(current);
 
   return (
@@ -46,6 +49,16 @@ const PgnViewer = ({ pgn, disabled, header }) => {
             onMoveClick={handleMoveClick}
           />
         </div>
+        {variations && (
+          <div className="move-modal-container">
+            <MoveModal
+              variations={variations}
+              onChoice={onVariationChoice}
+              onCancel={onVariationsCancel}
+              onFocusChange={refocusModal}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

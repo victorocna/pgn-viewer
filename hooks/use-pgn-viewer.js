@@ -6,26 +6,20 @@ import {
 } from 'chess-moments';
 import { flatten, isEmpty, last } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
-import {
-  coffee,
-  getMainlineMoments,
-  getSideToMove,
-  handleUserMoveVariations,
-} from '../functions';
+import { coffee, getSideToMove, handleUserMoveVariations } from '../functions';
 
 const usePgnViewer = (pgn, options) => {
   const {
     autoSelectMainline = false,
     initialMoveIndex = 0,
-    isDrillMode = false,
     useArrowsToMove = true,
   } = options || {};
 
   // === PGN state and navigation
   const [treeState, setTree] = useState(chessTree(pgn));
   const moments = useMemo(() => {
-    return isDrillMode ? getMainlineMoments(treeState) : flatten(treeState);
-  }, [treeState, isDrillMode]);
+    return flatten(treeState);
+  }, [treeState]);
 
   // Memoized PGN state
   const pgnState = useMemo(() => {
