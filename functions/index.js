@@ -1,6 +1,7 @@
 export { default as coffee } from './coffee';
 export { default as countSidelines } from './count-sidelines';
 export { default as getMainlineMoments } from './get-mainline-moments';
+export { default as getMoveArrow } from './get-move-arrow';
 export { default as getMoveNumber } from './get-move-number';
 export { default as getMoveSuffix } from './get-move-suffix';
 export { default as getPreviousVariationMoment } from './get-previous-variation-moment';
