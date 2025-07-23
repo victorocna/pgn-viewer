@@ -1,3 +1,4 @@
+import React from 'react';
 import classnames from 'merge-class-names';
 import { useEffect, useRef, useState } from 'react';
 import { getMoveSuffix } from '../functions';
@@ -62,14 +63,13 @@ const MoveModal = ({ variations = [], onChoice, onCancel, onFocusChange }) => {
     <div className="move-modal-dialog">
       <div className="move-modal-header">
         <div className="move-modal-header-content">
-          <i className="fa-solid fa-chess"></i>
           <p>Choose variation</p>
         </div>
         <button
           className="move-modal-close-button"
           onClick={() => onCancel && onCancel()}
         >
-          <i className="fa-solid fa-x move-modal-close-icon" />
+          <i className="close-icon" />
         </button>
       </div>
       <div
