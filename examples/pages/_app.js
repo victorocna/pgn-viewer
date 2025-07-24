@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { AppHead } from '../components';
+import { ThemeProvider } from '../hooks';
 import { sitename } from '../site.config';
 import '../css/index.css';
 import 'next-pgn-viewer/dist/bundle.css';
@@ -17,7 +18,9 @@ const Root = (props) => {
         />
       </Head>
       <AppHead />
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 };
