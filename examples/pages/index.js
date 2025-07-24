@@ -10,7 +10,7 @@ const Page = () => {
       title="Basic example"
       button={<PgnFileLoader rerender={rerender} onPgnLoad={setPgn} />}
     >
-      <PgnViewer key={key} pgn={pgn} header="PGN Viewer" />
+      <PgnViewer key={key} pgn={pgn} header="PGN Viewer" theme="dark" />
     </Layout>
   );
 };

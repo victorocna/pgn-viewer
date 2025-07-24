@@ -46,13 +46,13 @@
   overflow: hidden;
 }
 
-/* PGN tree header */
+/* PGN tree header - Dark theme (default) */
 .pgn-tree-header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: #e5e7eb;
-  border-bottom: 1px solid #d1d5db;
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #404040;
   padding: 0.75rem 1rem;
   margin: 0;
   width: 100%;
@@ -61,8 +61,18 @@
 .pgn-tree-header-title {
   font-size: 0.875rem;
   font-weight: 700;
-  color: #111827;
+  color: #ffffff;
   margin: 0;
+}
+
+/* Light theme header overrides */
+.pgn-tree-light .pgn-tree-header {
+  background-color: #e5e7eb;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.pgn-tree-light .pgn-tree-header-title {
+  color: #111827;
 }
 
 /* PGN tree scrollable container */

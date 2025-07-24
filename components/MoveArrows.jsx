@@ -5,7 +5,7 @@ const MoveArrows = ({ onPrevMove, onNextMove, disabled }) => {
     <div className="chess-board-controls">
       <button
         type="button"
-        className="pgn-viewer-button nav-light"
+        className="pgn-viewer-button"
         onClick={onPrevMove}
         disabled={disabled}
       >
@@ -13,7 +13,7 @@ const MoveArrows = ({ onPrevMove, onNextMove, disabled }) => {
       </button>
       <button
         type="button"
-        className="pgn-viewer-button nav-light"
+        className="pgn-viewer-button"
         onClick={onNextMove}
         disabled={disabled}
       >

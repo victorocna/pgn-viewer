@@ -1,5 +1,5 @@
-/* Navigation button styles for chess controls */
-.pgn-viewer-button.nav {
+/* Navigation button styles for chess controls - Dark theme (default) */
+.pgn-viewer-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -13,64 +13,54 @@
   transition: all 0.2s ease;
 }
 
-.pgn-viewer-button.nav:hover:not(:disabled) {
+.pgn-viewer-button:hover:not(:disabled) {
   background-color: #404040;
   border-color: #525252;
   color: #f9fafb;
 }
 
-.pgn-viewer-button.nav:active:not(:disabled) {
+.pgn-viewer-button:active:not(:disabled) {
   background-color: #2d2d2d;
   transform: translateY(1px);
 }
 
-.pgn-viewer-button.nav:disabled {
+.pgn-viewer-button:disabled {
   background-color: #1a1a1a;
   border-color: #2d2d2d;
   color: #6b7280;
   cursor: not-allowed;
 }
 
-.pgn-viewer-button.nav:disabled:hover {
+.pgn-viewer-button:disabled:hover {
   background-color: #1a1a1a;
   border-color: #2d2d2d;
   color: #6b7280;
 }
 
-/* Light theme navigation button styles */
-.pgn-viewer-button.nav-light {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+/* Light theme button overrides */
+.pgn-tree-light .pgn-viewer-button {
   background-color: #f3f4f6;
   border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
   color: #374151;
-  font-size: 1rem;
-  transition: all 0.2s ease;
 }
 
-.pgn-viewer-button.nav-light:hover:not(:disabled) {
+.pgn-tree-light .pgn-viewer-button:hover:not(:disabled) {
   background-color: #e5e7eb;
   border-color: #9ca3af;
   color: #111827;
 }
 
-.pgn-viewer-button.nav-light:active:not(:disabled) {
+.pgn-tree-light .pgn-viewer-button:active:not(:disabled) {
   background-color: #f3f4f6;
-  transform: translateY(1px);
 }
 
-.pgn-viewer-button.nav-light:disabled {
+.pgn-tree-light .pgn-viewer-button:disabled {
   background-color: #f9fafb;
   border-color: #e5e7eb;
   color: #9ca3af;
-  cursor: not-allowed;
 }
 
-.pgn-viewer-button.nav-light:disabled:hover {
+.pgn-tree-light .pgn-viewer-button:disabled:hover {
   background-color: #f9fafb;
   border-color: #e5e7eb;
   color: #9ca3af;
