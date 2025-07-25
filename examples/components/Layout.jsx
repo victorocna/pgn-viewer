@@ -2,13 +2,19 @@ import Menu from './Menu';
 import MenuButton from './MenuButton';
 import NoSsr from './NoSsr';
 import { useTheme } from '../hooks';
+import mergeClassNames from 'merge-class-names';
 
 const Layout = ({ title, button, children }) => {
   const { theme } = useTheme();
-  
+
   return (
     <NoSsr>
-      <div className={`layout-wrapper font-body text-sm min-h-screen flex ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
+      <div
+        className={mergeClassNames(
+          'layout-wrapper font-body text-sm min-h-screen flex',
+          theme === 'dark' ? 'dark-theme' : 'light-theme'
+        )}
+      >
         <Menu />
         <main className="main-content max w-full lg:col-span-5 p-4 lg:p-6 xl:px-12 gap-4">
           <div className="header-section flex items-center mb-4">
