@@ -53,3 +53,24 @@
   background-position: center;
   background-size: contain;
 }
+
+/* Light chevron icons for dark mode */
+.pgn-wrapper .chevron-left-light {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNjQwIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDcuMC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZmlsbD0iI2UzZTNlMyIgZD0iTTE2OS40IDI5Ny40QzE1Ni45IDMwOS45IDE1Ni45IDMzMC4yIDE2OS40IDM0Mi43TDM2MS40IDUzNC43QzM3My45IDU0Ny4yIDM5NC4yIDU0Ny4yIDQwNi43IDUzNC43QzQxOS4yIDUyMi4yIDQxOS4yIDUwMS45IDQwNi43IDQ4OS40TDIzNy4zIDMyMEw0MDYuNiAxNTAuNkM0MTkuMSAxMzguMSA0MTkuMSAxMTcuOCA0MDYuNiAxMDUuM0MzOTQuMSA5Mi44IDM3My44IDkyLjggMzYxLjMgMTA1LjNMMTY5LjMgMjk3LjN6Ii8+PC9zdmc+');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.pgn-wrapper .chevron-right-light {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNjQwIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDcuMC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZmlsbD0iI2UzZTNlMyIgZD0iTTQ3MS4xIDI5Ny40QzQ4My42IDMwOS45IDQ4My42IDMzMC4yIDQ3MS4xIDM0Mi43TDI3OS4xIDUzNC43QzI2Ni42IDU0Ny4yIDI0Ni4zIDU0Ny4yIDIzMy44IDUzNC43QzIyMS4zIDUyMi4yIDIyMS4zIDUwMS45IDIzMy44IDQ4OS40TDQwMy4yIDMyMEwyMzMuOSAxNTAuNkMyMjEuNCAxMzguMSAyMjEuNCAxMTcuOCAyMzMuOSAxMDUuM0MyNDYuNCA5Mi44IDI2Ni43IDkyLjggMjc5LjIgMTA1LjNMNDcxLjIgMjk3LjN6Ii8+PC9zdmc+');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

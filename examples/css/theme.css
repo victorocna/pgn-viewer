@@ -1,0 +1,239 @@
+/* Global Theme Variables */
+:root {
+  /* Light theme (default) */
+  --bg-primary: #f3f4f6;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border-color: #d1d5db;
+  --border-color-strong: #9ca3af;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-strong: rgba(0, 0, 0, 0.2);
+}
+
+/* Dark theme variables */
+.dark-theme {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-tertiary: #374151;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --border-color: #374151;
+  --border-color-strong: #4b5563;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-strong: rgba(0, 0, 0, 0.5);
+}
+
+/* Base layout theming */
+.layout-wrapper {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-content {
+  background-color: var(--bg-primary);
+}
+
+.page-title {
+  color: var(--text-primary);
+}
+
+.content-card {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+  box-shadow: 0 25px 50px -12px var(--shadow-color);
+}
+
+/* Menu theming */
+.nav-menu {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+/* Menu items styling */
+.menu-item {
+  color: var(--text-primary);
+  transition: color 0.2s ease, background-color 0.2s ease;
+  display: block;
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.menu-item-active {
+  color: #2563eb;
+  background-color: var(--bg-tertiary);
+}
+
+.dark-theme .menu-item-active {
+  color: #60a5fa;
+}
+
+/* General link styling in nav menu */
+.nav-menu a {
+  color: var(--text-primary);
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+/* Theme toggle styling */
+.theme-toggle-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.theme-toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  transition: background-color 0.2s ease;
+  outline: none;
+}
+
+.theme-toggle-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg-tertiary);
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 3rem;
+  height: 1.5rem;
+  background-color: var(--bg-tertiary);
+  border-radius: 0.75rem;
+  transition: background-color 0.3s ease;
+}
+
+.dark-theme .theme-toggle-track {
+  background-color: #2563eb;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: var(--bg-secondary);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.dark-theme .theme-toggle-thumb {
+  transform: translateX(1.5rem);
+}
+
+.theme-toggle-icon {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.theme-toggle-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Button theming for existing components */
+button {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Backdrop for mobile menu */
+.backdrop {
+  background-color: var(--shadow-strong);
+}
+
+/* Scrollbar theming */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Animation for theme transitions */
+* {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+/* Ensure proper contrast for focus states */
+button:focus:not(.theme-toggle-button),
+a:focus {
+  outline: 2px solid var(--text-secondary);
+  outline-offset: 2px;
+}
+
+/* Remove default focus outline for buttons that have custom focus styles */
+button:focus {
+  outline: none;
+}
+
+button:focus-visible:not(.theme-toggle-button) {
+  outline: 2px solid var(--text-secondary);
+  outline-offset: 2px;
+}
+
+/* Menu button theming */
+.menu-button {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.menu-button:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.menu-button label {
+  color: var(--text-primary);
+}
+
+/* File loader and other interactive elements */
+input[type="file"] {
+  color: var(--text-primary);
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}

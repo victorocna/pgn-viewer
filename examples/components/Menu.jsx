@@ -1,4 +1,5 @@
 import MenuItem from './MenuItem';
+import ThemeToggle from './ThemeToggle';
 
 const Menu = () => {
   return (
@@ -14,11 +15,11 @@ const Menu = () => {
         aria-label="Menu open/close"
         className="backdrop bg-gray-300 fixed lg:hidden h-screen w-screen inset-0"
       />
-      <nav className="nav-menu overflow-y-auto bg-white border-r border-gray-200">
+      <nav className="nav-menu overflow-y-auto">
         <div className="flex flex-col py-8 lg:sticky lg:top-0">
           <MenuItem href="/">Basic example</MenuItem>
-          <MenuItem href="/dark-mode">Dark mode</MenuItem>
           <MenuItem href="/editor">PGN editor</MenuItem>
+          <ThemeToggle />
         </div>
       </nav>
     </>

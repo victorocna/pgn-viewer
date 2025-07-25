@@ -1,15 +1,17 @@
 import React from 'react';
 import { NextChessground } from 'next-chessground';
 import { useEqualHeight, usePgnViewer, useShapes } from '../hooks';
+import classNames from '../lib/classnames';
 import PgnTree from './PgnTree';
 import MoveArrows from './MoveArrows';
 import MoveModal from './MoveModal';
 
-const PgnViewer = ({ pgn, disabled, header }) => {
+const PgnViewer = ({ pgn, disabled, header, theme = 'dark' }) => {
   const {
     current, // Current moment in the PGN
     tree, // PGN tree structure
     variations,
+    onUserMove,
     goNextMoment,
     goPrevMoment,
     goToMoment,
@@ -27,16 +29,26 @@ const PgnViewer = ({ pgn, disabled, header }) => {
   const { sourceRef, targetRef } = useEqualHeight(current);
 
   return (
-    <div className="pgn-wrapper">
+    <div
+      className={classNames(
+        'pgn-wrapper',
+        theme === 'light' && 'pgn-tree-light'
+      )}
+    >
       <div ref={sourceRef} className="chess-board">
-        <NextChessground fen={current.fen} shapes={shapes} viewOnly={true} />
+        <NextChessground
+          fen={current.fen}
+          shapes={shapes}
+          onMove={onUserMove}
+        />
         <MoveArrows
           onPrevMove={goPrevMoment}
           onNextMove={goNextMoment}
           disabled={disabled}
+          theme={theme}
         />
       </div>
-      <div ref={targetRef} className="pgn-tree-section pgn-tree-light">
+      <div ref={targetRef} className="pgn-tree-section">
         {header && (
           <div className="pgn-tree-header">
             <p className="pgn-tree-header-title">{header}</p>

@@ -61,8 +61,13 @@
   --pgn-tree-color-green-500: #16a34a;
 }
 
-/* Light theme alternative */
-.pgn-tree-light {
+/* Light theme alternative - Applied to wrapper and cascades to all children */
+.pgn-tree-light,
+.pgn-tree-light *,
+.pgn-tree-light .pgn-tree,
+.pgn-tree-light .pgn-tree-variation-wrapper,
+.pgn-tree-light .pgn-tree-move,
+.pgn-tree-light .pgn-tree-move-block {
   --pgn-tree-color-primary: #ffffff;
   --pgn-tree-color-secondary: #f8f9fa;
   --pgn-tree-color-tertiary: #e9ecef;
@@ -96,6 +101,7 @@
   line-height: 1.625;
   min-height: 0px;
   color: var(--pgn-tree-color-text);
+  background-color: var(--pgn-tree-color-primary);
 }
 
 /* Custom scrollbar styling */

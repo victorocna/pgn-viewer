@@ -3,6 +3,7 @@ dist
 NOTES.txt
 .env.production
 .DS_Store
+CLAUDE.md
 
 # Logs
 logs
