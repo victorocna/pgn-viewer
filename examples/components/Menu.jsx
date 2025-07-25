@@ -19,10 +19,7 @@ const Menu = () => {
         <div className="flex flex-col py-8 lg:sticky lg:top-0">
           <MenuItem href="/">Basic example</MenuItem>
           <MenuItem href="/editor">PGN editor</MenuItem>
-          
-          <div className="theme-toggle-container">
-            <ThemeToggle />
-          </div>
+          <ThemeToggle />
         </div>
       </nav>
     </>
